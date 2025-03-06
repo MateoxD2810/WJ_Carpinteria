@@ -1,0 +1,124 @@
+.ficha{
+    padding: 30px 0;
+}
+
+.detalless{
+    padding: 30px 0;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.detalless h2{
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3vw;
+    font-weight: bold;
+
+}
+
+.detalless p{
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.detalless label{
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+
+.carrito{
+    padding: 30px 0;
+}
+
+.pagos{
+    padding: 30px 0;
+}
+
+.pagos h2{
+    text-align: center;
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.pagos label{
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.pagos button{
+    font-size: 1.5vw;
+    margin-top: 20px;
+    width: 600px;
+}
+
+.personalizar{
+    padding: 30px 0;
+}
+
+.personalizar h2{
+    text-align: center;
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.personalizar label{
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.personalizar button{
+    font-size: 1.5vw;
+    margin-top: 20px;
+    width: 600px;
+}
+
+/* Estilos para la notificación */
+.notificacion-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.notificacion-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.notificacion-title {
+    margin-bottom: 10px;
+}
+
+/* Clase para ocultar la notificación */
+.hidden {
+    display: none;
+}
+

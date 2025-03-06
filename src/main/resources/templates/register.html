@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            background-image: url('https://i.postimg.cc/RhVYLMbk/Fondo.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 400px;
+        }
+
+        .register-container img {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 150px; /* Ajusta el tamaño del logo */
+        }
+
+        h3 {
+            color: #FFC107;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-bottom: 2px solid #FFC107;
+        }
+
+        .form-control:focus {
+            border-bottom-color: #FFD700;
+            box-shadow: none;
+        }
+
+        .form-control::placeholder {
+            color: #c7c7c7;
+        }
+
+        .btn-warning {
+            background-color: #FFC107;
+            color: black;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn-warning:hover {
+            background-color: #FFB300;
+        }
+
+        .text-warning {
+            color: #FFC107 !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="register-container">
+    <!-- Mostrar errores de registro -->
+    <div th:if="${param.error}">
+        <div class="alert alert-danger">
+            <p th:text="${errorMessage}">Hubo un problema con el registro. Asegúrate de que el nombre de usuario y el correo electrónico no estén en uso.</p>
+        </div>
+    </div>
+
+    <!-- Formulario de registro -->
+    <form th:action="@{/register}" method="post">
+        <!-- Imagen del logo -->
+        <a href="https://postimg.cc/LqG9J67M" target="_blank">
+            <img src="https://i.postimg.cc/4dxTn5Cq/WJ.png" alt="WJ" />
+        </a>
+
+        <!-- Título del formulario -->
+        <h3>Registrarse</h3>
+
+        <!-- Campo para el nombre de usuario -->
+        <div class="mb-3">
+            <label for="username" class="form-label text-warning">Nombre de Usuario</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Ingrese su usuario" required minlength="4"/>
+            <small class="form-text text-warning">El nombre de usuario debe tener al menos 4 caracteres.</small>
+        </div>
+
+        <!-- Campo para el Gmail -->
+        <div class="mb-3">
+            <label for="gmail" class="form-label text-warning">Gmail</label>
+            <input type="email" id="gmail" name="gmail" class="form-control" placeholder="Ingrese su correo" required />
+        </div>
+
+        <!-- Campo para el teléfono -->
+        <div class="mb-3">
+            <label for="telefono" class="form-label text-warning">Teléfono (Opcional)</label>
+            <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese su teléfono" />
+        </div>
+
+        <!-- Campo para la dirección -->
+        <div class="mb-3">
+            <label for="direccion" class="form-label text-warning">Dirección</label>
+            <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese su dirección" required />
+        </div>
+
+        <!-- Campo para la contraseña -->
+        <div class="mb-3">
+            <label for="password" class="form-label text-warning">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Ingrese su contraseña" required minlength="8" maxlength="25" />
+            <small class="form-text text-warning">La contraseña debe tener entre 8 y 25 caracteres.</small>
+        </div>
+
+        <!-- Campo para confirmar contraseña -->
+        <div class="mb-3">
+            <label for="passwordConfirm" class="form-label text-warning">Confirmar Contraseña</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="Confirme su contraseña" required />
+        </div>
+
+        <!-- Botón para registrarse -->
+        <div class="mb-3">
+            <button type="submit" class="btn btn-warning">Registrarse</button>
+        </div>
+
+        <!-- Enlaces para otros registros -->
+        <div class="text-center">
+            <p>¿Ya tienes cuenta? <a th:href="@{/login}" class="text-warning">Inicia Sesión como Usuario</a></p>
+            <p>¿Eres administrador? <a th:href="@{/register_admin}" class="text-warning">Regístrate como Administrador</a></p>
+            <p>¿Eres carpintero? <a th:href="@{/register_carpintero}" class="text-warning">Regístrate como Carpintero</a></p>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

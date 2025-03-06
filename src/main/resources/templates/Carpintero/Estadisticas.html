@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Estadisticas</title>
+    <link rel="stylesheet" href="/css/Carpintero/style.css">
+    <link rel="stylesheet" href="css/Carpintero/estadisticas.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/6adaba3b1c.js" crossorigin="anonymous"></script>
+
+    
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+           <h3><span>Crpintero</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <h4 th:text="${#authentication.principal.username}"></h4>
+                <small>Carpintero</small>
+            </div>  
+
+            <div class="side-menu">
+                <div class="contenedor-icono">
+                <li>
+
+                    <a href="/Carpintero/Index">
+                        <span class="#"><i class="bi bi-house"></i></span><small>Inicio</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Ordenes">
+                        <span class="#"><i class="bi bi-person-lines-fill"></i></span><small>Ver Ordenes</small>
+                    </a>
+
+                    </li>
+                    
+                    <li>
+
+                    <a href="/Carpintero/Pendientes">
+                        <span class="#"><i class="bi bi-person-exclamation"></i></span><small>Pendientes</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Actividad">
+                        <span class="#"><i class="bi bi-tools"></i></span><small>Actividad</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Materiales">
+                        <span class="#"><i class="bi bi-pencil-square"></i></span><small>Materiales</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Reseñas">
+                        <span class="#"><i class="bi bi-stars"></i></span><small>Reseñas</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Estadisticas">
+                        <span class="#"><i class="bi bi-bar-chart"></i></span><small>Estadisticas</small>
+                    </a>
+
+                    </li>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+
+                <label for="menu-toggle">
+                    <span class="las la-bars">WJ CARPINTERIA</span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <div class="boton-modal">
+                        <label href="#" for="btn-modal" class="fa-solid fa-bell"></label>
+                    </div>
+                    <input type="checkbox" id="btn-modal">
+    <div class="container-modal">
+        <div class="content-modal">
+            <h2>Lo siento</h2>
+            <p>Aun no tienes notificasiones nuevas</p>
+            <div class="btn-cerrar">
+                <label for="btn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="btn-modal" class="cerrar-modal"></label>
+    </div>
+                    
+                    <div class="notify-icon">
+                        <a class="fa-solid fa-right-to-bracket" th:href="@{/logout}"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="page-content">
+            
+                <div class="analytics">
+                    <h1>Generador de Gráficos</h1>
+
+                    <div class="left">
+                        <select name="" id="tipo">
+                            <option value="circular">
+                                Gráfico Circular
+                            </option>
+                            <option value="columna">
+                                Gráfico de Columnas
+                            </option>
+                        </select>
+                        <input type="text" placeholder="Título del Gráfico" id="titulo">
+                        <div class="datos" id="datos">
+                            <div class="dato">
+                                <input type="text" placeholder="Leyenda 1" class="serie">
+                                <input type="text" placeholder="Valor 1" class="valor">
+                            </div>
+                            <div class="dato">
+                                <input type="text" placeholder="Leyenda 2" class="serie">
+                                <input type="text" placeholder="Valor 2" class="valor">
+                            </div>
+                        </div>
+                        <button onclick="agregarDato()" class="agregar"> + </button>
+                        <button onclick="cargarGrafico()" class="crear-grafico">Crear Gráfico</button>
+                    </div>
+                    <div class="right">
+                        <div id="piechart"></div>
+                    </div>
+                
+                
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script src="js/script.js"></script>
+            
+                    
+                    
+
+                </div>
+                
+                
+                <div class="row pt-5 pb-5 justify-content-around">
+
+                    <div class="col-md-5 border shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>Mejor Vendedor</h3>
+                        <table class="table table-dark table-striped">
+    
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Muebles</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Ganancias totales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Ana Ruiz</td>
+                                    <td>Estanteria</td>
+                                    <td>200.000</td>
+                                    <td>150.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Juan Pérez</td>
+                                    <td>Mesa de centro</td>
+                                    <td>200.000</td>
+                                    <td>150.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>María García</td>
+                                    <td>Silla de comedor</td>
+                                    <td>200.000</td>
+                                    <td>150.000</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Carlos López</td>
+                                    <td>Armario</td>
+                                    <td>200.000</td>
+                                    <td>150.000</td>
+                                </tr>
+                            </tbody>
+    
+                        </table>
+                    </div> <br> <br>
+                    <div class="col-md-5 border shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+                        <h3 class="mb-3 pb-3 pt-3">Ranking Carpintero</h3>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Porcentaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+    
+                                    <th scope="row">1</th>
+                                    <td>Ana Ruiz</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 93%">93%</div>
+                                        </div>
+                                    </td>
+    
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Juan Perez</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 89%">89%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Juan Perez</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" style="width: 76%">76%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Juan Perez</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 55%">55%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Juan Perez</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 30%">30%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Juan Perez</td>
+                                    <td>
+                                        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 15%">15%</div>
+                                        </div>
+                                    </td>
+                                </tr>
+    
+                            </tbody>
+                        </table>
+                    </div>
+    
+            
+            </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    
+        <script>
+          new DataTable('#Solicitudes');
+        </script>
+                     
+                
+                    </div>
+    
+    </div>
+</body>
+</html>

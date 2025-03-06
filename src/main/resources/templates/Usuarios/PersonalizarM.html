@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/css/Usuarios/styleCliente.css">
+    <link rel="stylesheet" href="../iconos/css/all.min.css">
+    <link rel="stylesheet" href="/css/Usuarios/catalogi.css">
+    <link rel="stylesheet" href="/css/Usuarios/personalizarM.css">
+    <title>Cátalogo</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <!-- 1 fila navegacion -->
+        <div class="row border-bottom border-body nav">
+
+            <div class="col">
+
+                <nav class="navbar navbar-expand-lg">
+
+                    <img class="navbar-brand" src="/img/Usuarios/wjj.png">
+    
+                    <!-- Apartados -->
+                    
+                    <div class="collapse navbar-collapse Nabvar d-flex justify-content-start" id="navbarNav">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Usuarios/Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Usuarios/Catalogo">Cátalogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Usuarios/PersonalizarM">Perzonalizar Mueble <i class="fa-solid fa-hammer"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true"></a>
+                        </li>
+                        </ul>
+                    </div>
+    
+    
+                    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                        <ul class="nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-5" aria-current="page" th:text="${#authentication.principal.username}"></a>
+                            </li>
+                            <div class="botonPerfil text-center">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Ver perfil</button>
+                            </div>
+    
+                            <!-- Ver Perfil -->
+    
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                
+                                    <div class="modal-body">
+                                    <!-- Contenido -->
+                                    <div class="imgPer card">
+                                        <img src="/img/Usuarios/wjj.png" class="card-img-top img-fluid" alt="...">
+                                    <div class="card-body ">
+                                        <h4 class="display-6 text-warning-emphasis" th:text="${#authentication.principal.username}"></h4>
+                                        <h4>Rol: Usuario</h4>
+                                        <h4>Correo Electrónico: #################</h4>
+                                        <h4>Teléfono: +57 ##########</h4>
+                                        <h4>Dirección: #########################</h4>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark fs-6" data-bs-dismiss="modal">Cerrar</button>
+                                    <a href="/Usuarios/ActualizarInfo" type="button" class="btn btn-warning fs-6">Modificar Información</a>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+    
+                            <!--Ver Perfil -->
+                        <li>
+                            <a class="nav-link fs-5" href="/Usuarios/Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" href="#"><i class="fa-solid fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" th:href="@{/logout}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                        </li>
+                        </ul>
+                    </div>
+    
+                    </nav>
+
+
+            </div>
+
+            
+
+        </div>
+
+
+        <div class="container espacio">
+            
+            <form class="personalizar">
+                <h2 class="fs-1">Personalizar Mueble</h2>
+            <div class="form-group text-center">
+                <label for="imagen" class="fs-5">Seleccionar imagen de modelo (Necesario)</label>
+                <img src="https://stonegatesl.com/wp-content/uploads/2021/01/avatar-300x300.jpg" alt="avatar" id="img">
+                <input class="selectiona" type="file" name="foto" id="foto" accept="image/*"required>
+                <label class="botons fs-5" for="foto">Seleccionar Imagen</label>
+            </div>
+            <div class="form-group">
+                <label for="medidas" class="fs-5">Medidas del Mueble</label>
+                <input type="text" class="form-control" id="medidas" pattern="\d+cm x \d+cm x \d+cm" title="Por favor, introduce las medidas en el formato correcto, por ejemplo: 100cm x 50cm x 75cm" placeholder="Ej. 100cm (Altura) x 50cm (Ancho) x 75cm (Largo)" required>
+            </div>
+            <!-- material -->
+            <label class="fs-5">Material del mueble</label>
+            <div class="material">
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Tribeca.jpeg" alt="TRIBECA">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Soder.jpeg" alt="SODER">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Gracia.jpeg" alt="GRÁCIA">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Pignetto.jpeg" alt="PIGNETTO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Brixton.jpeg" alt="BRIXTON">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Mitte.jpeg" alt="MITTE">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Chalett.jpeg" alt="CHALETT">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Lenno.jpeg" alt="LENNO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Fendo.jpeg" alt="FENDO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Macula.jpeg" alt="MÁCULA">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Chantilli.jpeg" alt="CHANTILLI">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Glacial.jpeg" alt="GLACIAL">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/RobleMallado.jpeg" alt="ROBLE MALLADO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('metal')">
+                    <img src="/img/Usuarios/materiales/TabaccoChic.jpeg" alt="TABACCO CHIC">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Nuez.jpeg" alt="NUEZ">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Capuccino.jpeg" alt="CAPUCCINO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Amaretto.jpeg" alt="AMARETTO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Arena.jpeg" alt="ARENA">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Cedro.jpeg" alt="CEDRO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Humo.jpeg" alt="HUMO">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Vienes.jpeg" alt="VIENES">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Wengue.jpeg" alt="WENGUE">
+                </label>
+                <label>
+                    <input type="radio" name="material" value="madera" onchange="selectMaterialImage('madera')">
+                    <img src="/img/Usuarios/materiales/Kallio.jpeg" alt="KALLIO">
+                </label>
+            </div>
+            <!-- material -->
+            <div class="form-group">
+                <label for="color" class="fs-5">Color (opcional)</label>
+                <input type="color" class="form-control" id="color">
+            </div>
+            <div class="text-center comprass">
+            <button type="submit" class="btn btn-warning fs-5">Ordenar Mueble</button>
+            </div>
+            </form>
+        </div>
+
+
+    </div>
+        
+
+
+<!--FOOTER-->
+
+<footer>
+
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+
+                <h4 class="text-uppercase mb-4 font-weight-bold text-dark">Nosotros</h4>
+                <hr class="mb-4">
+                
+                <p><a href="#" class="text-dark">Nosotros</a></p>
+                <p><a href="#" class="text-dark">Servicios</a></p>
+                <p><a href="../rolCliente/Error404.html" class="text-dark">Ayuda</a></p>
+                
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+
+                <h4 class="text-uppercase mb-4 font-weight-bold text-dark">INFO SCRUM</h4>
+                <hr class="mb-4">
+
+                <p><i class="fa-regular fa-user"></i>Mateo Galindo Sandino</p>
+                <p><i class="fab fa-whatsapp"></i>+57 324 5568379</p>
+                <p><i class="fa-regular fa-user"></i>Christopher Daniel Jiménez Rivera</p>
+                <p><i class="fab fa-whatsapp"></i>+57 310 8874722</p>
+                <p><i class="fa-regular fa-user"></i>Juan Camilo Amorocho Lievano</p>
+                <p><i class="fab fa-whatsapp"></i>+57 322 4529636</p>
+                
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+
+                <h4 class="text-uppercase mb-4 font-weight-bold text-dark">INFO WJ Carpinteria</h4>
+                <hr class="mb-4">
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In assumenda accusamus fuga iste! 
+                    Iste blanditiis voluptates qui suscipit tempore maiores quam repellendus vero aut facere! 
+                    Omnis odit rerum itaque illo.</p>
+                
+                
+            </div>
+            <hr class="mb-4">
+            <div class="text-center mb-2">
+
+                <p>
+                    © 2024 WJ-Carpinteria. Todos los derechos reservados.
+                    <a href="#">
+                        <strong class="text-primary"></strong>
+                    </a>
+                </p>
+
+            </div>
+            <div class="text-center ">
+
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item ">
+                        <a href="#" class="text-dark"><i class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a href="#" class="text-dark"><i class="fab fa-whatsapp"></i></a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a href="#" class="text-dark"><i class="fab fa-tiktok"></i></a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>}
+    <script src="../js/personalizar.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Materiales</title>
+    <link rel="stylesheet" href="/css/Carpintero/materiales.css">
+    <link rel="stylesheet" href="/css/Carpintero/material.css">
+    <link rel="stylesheet" href="/css/Carpintero/style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/6adaba3b1c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>Carpintero</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <h4 th:text="${#authentication.principal.username}"></h4>
+                <small>Carpintero</small>
+            </div>  
+
+            <div class="side-menu">
+                <div class="contenedor-icono">
+                <li>
+
+                    <a href="/Carpintero/Index">
+                        <span class="#"><i class="bi bi-house"></i></span><small>Inicio</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Ordenes">
+                        <span class="#"><i class="bi bi-person-lines-fill"></i></span><small>Ver Ordenes</small>
+                    </a>
+
+                    </li>
+                    
+                    <li>
+
+                    <a href="/Carpintero/Pendientes">
+                        <span class="#"><i class="bi bi-person-exclamation"></i></span><small>Pendientes</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Actividad">
+                        <span class="#"><i class="bi bi-tools"></i></span><small>Actividad</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Materiales">
+                        <span class="#"><i class="bi bi-pencil-square"></i></span><small>Materiales</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Reseñas">
+                        <span class="#"><i class="bi bi-stars"></i></span><small>Reseñas</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Estadisticas">
+                        <span class="#"><i class="bi bi-bar-chart"></i></span><small>Estadisticas</small>
+                    </a>
+
+                    </li>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+
+                <label for="menu-toggle">
+                    <span class="las la-bars">WJ CARPINTERIA</span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <div class="boton-modal">
+                        <label href="#" for="btn-modal" class="fa-solid fa-bell"></label>
+                    </div>
+                    <input type="checkbox" id="btn-modal">
+    <div class="container-modal">
+        <div class="content-modal">
+            <h2>Lo siento</h2>
+            <p>Aun no tienes notificasiones nuevas</p>
+            <div class="btn-cerrar">
+                <label for="btn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="btn-modal" class="cerrar-modal"></label>
+    </div>
+                    
+                    <div class="notify-icon">
+                        <a class="fa-solid fa-right-to-bracket" th:href="@{/logout}"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main>
+            
+            
+            
+            <div class="page-content">
+
+                <div class="records table-responsive">
+                <div class="container">
+  <h2>Formulario de Pedido de Productos</h2>
+  <form id="pedido-form">
+    <div class="producto-info">
+      <label for="producto">Producto:</label>
+      <input type="text" id="producto" name="producto" required>
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" name="cantidad" required>
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+    </div>
+    <div class="contacto-info">
+      <label for="nombre">Nombre del Solicitante:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <label for="comentarios">Instrucciones Especiales o Comentarios Adicionales:</label>
+    <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+    <input type="submit" value="Enviar Pedido">
+  </form>
+</div>
+
+                </div>
+            
+            </div>
+            
+        </main>
+        
+    </div>
+</body>
+</html>

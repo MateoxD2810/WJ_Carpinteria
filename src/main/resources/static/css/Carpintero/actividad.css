@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    text-align: center;
+  }
+  form {
+    margin-top: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+.contenedor-imagen {
+  text-align: center;
+}
+    /* Estilos para el botón Cerrar */
+    .close-button {
+        color: #fff; /* Color del texto blanco */
+        border: none; /* Sin borde */
+        padding: 8px 16px; /* Espaciado interno */
+        border-radius: 4px; /* Bordes redondeados */
+        cursor: pointer; /* Cursor al pasar sobre el botón */
+        font-size: 14px; /* Tamaño del texto */
+    }
+    .boton {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra los elementos horizontalmente */
+        margin-top: 20px;
+    }
+    
+    /* Estilos para el contenedor de los radio buttons */
+    .radio-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Estilos para cada radio button */
+    .radio-container input[type="radio"] {
+        display: none;
+    }
+    
+    .radio-container label {
+        display: block;
+        padding: 10px;
+        margin-bottom: 5px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    /* Cambia el color de fondo del label cuando se pasa el mouse sobre él */
+    .radio-container label:hover {
+        background-color: #e0e0e0;
+    }
+    
+    /* Estilos para cuando el radio button está seleccionado */
+    .radio-container input[type="radio"]:checked + label {
+        background-color: #007bff;
+        color: white;
+    }
+
+    /* Estilos para el botón */
+    .submit-btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Cambia el color del botón al pasar el mouse sobre él */
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+    .header-menu label span,
+.notify-icon span:first-child {
+    font-size: 1.4rem;
+}
+
+.notify-icon span:last-child {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: -5px;
+    top: -5px;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 500;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/Administrador/style.css">
+    <!--Bootstrap 5 icons CDN-->
+    <link rel="stylesheet" href="../iconos/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6adaba3b1c.js" crossorigin="anonymous"></script>
+    <title>Creador de Carpinteros</title>
+
+  </head>
+  <body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>Admin</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <h4 th:text="${#authentication.principal.username}"></h4>
+                <small>Administrador</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="/Administrador/Index" class="active">
+                            <span class="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i></span>
+                            <small>Inicio</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Actualizar">
+                            <span class="#"><i class="fa-solid fa-id-card" style="color: #ffffff;"></i></span>
+                            <small>Configuraion Perfil</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Clientes">
+                            <span class="#"><i class="fa-solid fa-users" style="color: #ffffff;"></i></span>
+                            <small>Clientes</small>
+                        </a>
+                    </li>                    
+                    <li>
+                        <a href="/Administrador/Carpinteros">
+                            <span class="#"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i></span>
+                            <small>Carpinteros</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/NuevoCarpintero">
+                            <span class="#"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></span>
+                            <small>Nuevo Carpintero</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Ventas">
+                            <span class="#"><i class="fa-solid fa-chart-line" style="color: #ffffff;"></i></span>
+                            <small>Ventas</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/CatalogoProductos">
+                             <span class="#"><i class="fa-solid fa-toolbox" style="color: #ffffff;"></i></span>
+                             <small>Catálogo</small>
+                         </a>
+                     </li>
+                     <li>
+                        <a href="/Administrador/Comentarios">
+                             <span class="#"><i class="fa-solid fa-comment-dots" style="color: #ffffff;"></i></span>
+                             <small>Comentarios</small>
+                         </a>
+                     </li>
+                    
+                     <li>
+                        <a href="/Administrador/Envios">
+                             <span class="#"><i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></span>
+                             <small>Envios</small>
+                         </a>
+                     </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars">WJ CARPINTERIA</span>
+                </label>
+                
+                <div class="header-menu">
+                    <label for="">
+                        <span class="#"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></span>
+                    </label>
+                    
+                    <div class="notify-icon"> 
+                        <span class="#"><i class="fa-regular fa-envelope" style="color: #da1010;"></i></span>
+                        <a href="Error505.php"><span class="notify">4</span></a>
+                    </div>
+                    
+                    <div class="notify-icon">
+                        <span class="#"><i class="fa-solid fa-bell" style="color: #FFD43B;"></i></span>
+                        <a href="Error404.php"><span class="notify">3</span></a> 
+                    </div>
+                    
+                    <div class="user">
+                        
+                        
+                        <span class="#"></span>
+                        <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket" style="color: #b61111;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main>
+            
+            <div class="page-header">
+                <h1>¡Wow! Que ventas!!</h1>
+                <small th:text="'¡Bienvenido, ' + ${#authentication.principal.username} + '!'"></small>
+            </div>
+            
+
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="text-center mb-4">Actualizar Carpintero</h2>
+            
+                        <form th:action="@{/Administrador/ActualizarCarpintero}" th:object="${carpintero}" method="post" class="p-4 border rounded bg-light">
+                            <input type="hidden" th:field="*{id}" />
+            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Nombre de usuario:</label>
+                                <input type="text" id="username" th:field="*{username}" class="form-control" required />
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="gmail" class="form-label">Correo Electrónico:</label>
+                                <input type="email" id="gmail" th:field="*{gmail}" class="form-control" required />
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono:</label>
+                                <input type="text" id="telefono" th:field="*{telefono}" class="form-control" />
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección:</label>
+                                <input type="text" id="direccion" th:field="*{direccion}" class="form-control" />
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="salario" class="form-label">Salario:</label>
+                                <input type="number" id="salario" th:field="*{salario}" step="0.01" class="form-control" />
+                            </div>
+            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-warning">Actualizar</button>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="/Administrador/Carpinteros" class="btn btn-primary">Volver</a>
+                                <a href="/Administrador/Carpinteros" class="btn btn-danger">Cancelar</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

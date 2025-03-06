@@ -1,0 +1,285 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 150vh;
+    position: relative;
+}
+
+.nav{
+    background: #0e0e0e;
+    font-size: 1.5vw;
+}
+
+.navbar-brand{
+    width: 8%;
+}
+
+.nav a{
+    color: #fff;
+    font-size: 1.3vw;
+}
+
+.nav a:hover{
+    color: #c4a600;
+}
+
+/*.nav img{
+
+}*/
+
+.Nabvar ul{
+    font-size: 1.3vw;
+    float: right;
+    list-style: none;
+    margin-right: 40px;
+    position: relative;
+}
+
+.Nabvar ul li{
+    display: inline-block;
+    background: #0e0e0e;
+    margin: 0 5px;
+}
+
+.Nabvar ul li a{
+    color: white;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 20px;
+    padding: 8px 15px;
+}
+
+.Nabvar ul li a:hover{
+    color: #c4a600;
+    border-radius: 5px;
+    box-shadow:  0 0 5px #c4a600;
+}
+
+.Qsomos{
+  color: #0e0e0e;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2vw;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+/*inicio*/
+
+.contenedorMImagen{
+  background-image: url('https://i.postimg.cc/G2fCDRPx/carpinteria.jpg');
+  padding: 15% 5%;
+  background-size: cover; /* o el tamaño deseado */
+  background-attachment: fixed;
+}
+
+.contenedorMImagen h1 {
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px #0e0e0e;
+}
+
+.contenedorMImagen h3 {
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2vw;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px #0e0e0e;
+}
+
+/*inicio*/
+
+/*Carrusel*/
+
+.vallase{
+    width: 50vw;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vallase h5{
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px #0e0e0e;
+}
+
+.vallase p{
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2vw;
+  font-weight: bold;
+  text-shadow: 3px 3px 3px #0e0e0e;
+}
+
+.vallase img{
+  background: rgba(16, 16, 16, 0.5);
+}
+
+/*Carrusel*/
+
+.tarjetas{
+    padding: 20px;
+}
+
+.tarjetas img{
+    width: 80%;
+    margin-bottom: 5%;
+}
+
+/* tarjeta ver perfil cliente*/
+
+.imgRol img{
+  width: 35%;
+  border: 4px solid #fff;
+  box-shadow: 2px 2px 18px #000;
+  border-radius: 50%;
+}
+
+.imgPer img{
+  width: 40%;
+  border: 2px solid #797979;
+  box-shadow: 2px 2px 18px #000;
+  padding: 10px;
+  margin: auto;
+  border-radius: 30%;
+}
+
+.imgPer h3{
+  margin: 20px 0;
+  border-bottom: 2px solid;
+}
+
+/*Footer*/
+.pie {
+  font-size: 1.0vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding:  0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.img2{
+  width:40px ;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+span {
+  font-size: 23px;
+}
+
+.wh {
+  background: #000;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.ph {
+  background: #000;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.fb {
+  background: #000;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.ins {
+  background: #000;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.email {
+  background: #000;
+  padding: 8px;
+  border-radius: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.logotipo {
+  font-size: 18px;
+  color: #fff;
+}
+
+.section {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 40px;
+}
+
+.section div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+a {
+  color: #fff;
+  padding: 10px 0;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.texto1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #a3a3a3;
+}
+
+footer{
+  background-color: beige;
+  padding: 1em 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.abajo a{
+    text-decoration: none;
+    font-size: 17px;
+}
+.abajo p{
+  font-size: 17px;
+}
+.abajo i{
+  font-size: 25px;
+}
+.abajo a:hover{
+  color: darkgreen !important;
+}
+
+/* flecha volver inicio */
+
+.flecha {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.flecha:hover{
+  background: rgba(0, 0, 0, 0.5);
+}

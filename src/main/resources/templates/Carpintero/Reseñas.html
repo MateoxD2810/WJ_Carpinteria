@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Reseñas</title>
+    <link rel="stylesheet" href="/css/Carpintero/Reseñas.css">
+    <link rel="stylesheet" href="/css/Carpintero/style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://kit.fontawesome.com/6adaba3b1c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>Carpintero</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <h4 th:text="${#authentication.principal.username}"></h4>
+                <small>Carpintero</small>
+            </div>  
+
+            <div class="side-menu">
+                <div class="contenedor-icono">
+                <li>
+
+                    <a href="/Carpintero/Index">
+                        <span class="#"><i class="bi bi-house"></i></span><small>Inicio</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Ordenes">
+                        <span class="#"><i class="bi bi-person-lines-fill"></i></span><small>Ver Ordenes</small>
+                    </a>
+
+                    </li>
+                    
+                    <li>
+
+                    <a href="/Carpintero/Pendientes">
+                        <span class="#"><i class="bi bi-person-exclamation"></i></span><small>Pendientes</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Actividad">
+                        <span class="#"><i class="bi bi-tools"></i></span><small>Actividad</small>
+                    </a>
+                        
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Materiales">
+                        <span class="#"><i class="bi bi-pencil-square"></i></span><small>Materiales</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Reseñas">
+                        <span class="#"><i class="bi bi-stars"></i></span><small>Reseñas</small>
+                    </a>
+
+                    </li>
+                    <li>
+
+                    <a href="/Carpintero/Estadisticas">
+                        <span class="#"><i class="bi bi-bar-chart"></i></span><small>Estadisticas</small>
+                    </a>
+
+                    </li>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+
+                <label for="menu-toggle">
+                    <span class="las la-bars">WJ CARPINTERIA</span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <div class="boton-modal">
+                        <label href="#" for="btn-modal" class="fa-solid fa-bell"></label>
+                    </div>
+                    <input type="checkbox" id="btn-modal">
+    <div class="container-modal">
+        <div class="content-modal">
+            <h2>Lo siento</h2>
+            <p>Aun no tienes notificasiones nuevas</p>
+            <div class="btn-cerrar">
+                <label for="btn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="btn-modal" class="cerrar-modal"></label>
+    </div>
+                    
+                    <div class="notify-icon">
+                        <a class="fa-solid fa-right-to-bracket" th:href="@{/logout}"></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main>
+            <div class="full-boxer">
+                        
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src="/img/Carpintero/imgResenas/1.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Ranidi Lochana</strong>
+                                <span>@Ranidi Lochana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src="/img/Carpintero/imgResenas/2.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Senuda Dilwan</strong>
+                                <span>@senuda dilwan</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src="/img/Carpintero/imgResenas/3.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Rumali fernando</strong>
+                                <span>@Rumali fernando</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src= "/img/Carpintero/imgResenas/4.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Midinu Thiranjana</strong>
+                                <span>@Midinu Thiranjana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src= "/img/Carpintero/imgResenas/4.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Midinu Thiranjana</strong>
+                                <span>@Midinu Thiranjana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src= "/img/Carpintero/imgResenas/4.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Midinu Thiranjana</strong>
+                                <span>@Midinu Thiranjana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src= "/img/Carpintero/imgResenas/4.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Midinu Thiranjana</strong>
+                                <span>@Midinu Thiranjana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <div class="box-top">
+                        <div class="Profile">
+                            <div class="profile-image">
+                                <img src= "/img/Carpintero/imgResenas/4.png">
+                            </div>
+                            <div class="Name">
+                                <strong>Midinu Thiranjana</strong>
+                                <span>@Midinu Thiranjana</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

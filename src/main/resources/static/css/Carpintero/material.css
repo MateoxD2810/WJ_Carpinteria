@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    text-align: center; 
+  }
+  form {
+    margin-top: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  } 
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+.contenedor-imagen {
+  text-align: center;
+}
+    /* Estilos para el botón Cerrar */
+    .close-button {
+        align-items: center;
+        background-color: #8BC34A; /* Color de fondo verde claro */
+        color: #fff; /* Color del texto blanco */
+        border: none; /* Sin borde */
+        padding: 8px 16px; /* Espaciado interno */
+        border-radius: 4px; /* Bordes redondeados */
+        cursor: pointer; /* Cursor al pasar sobre el botón */
+        font-size: 14px; /* Tamaño del texto */
+    }
+
+    /* Estilos para el botón Cerrar al pasar el ratón sobre él */
+    .close-button:hover {
+        background-color: #689F38; /* Cambiar color de fondo al pasar el ratón */
+    }
+    .header-menu label span,
+    .notify-icon span:first-child {
+        font-size: 1.4rem;
+    }
+    
+    .notify-icon span:last-child {
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        right: -5px;
+        top: -5px;
+        color: #fff;
+        font-size: .8rem;
+        font-weight: 500;
+    }
+
+
+

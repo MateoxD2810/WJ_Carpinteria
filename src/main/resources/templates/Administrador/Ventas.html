@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="/css/Administrador/style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="../iconos/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css">
+
+    <!--Bootstrap 5 icons CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/6adaba3b1c.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>Admin</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <h4 th:text="${#authentication.principal.username}"></h4>
+                <small>Administrador</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="/Administrador/Index" class="active">
+                            <span class="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i></span>
+                            <small>Inicio</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Actualizar">
+                            <span class="#"><i class="fa-solid fa-id-card" style="color: #ffffff;"></i></span>
+                            <small>Configuraion Perfil</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Clientes">
+                            <span class="#"><i class="fa-solid fa-users" style="color: #ffffff;"></i></span>
+                            <small>Clientes</small>
+                        </a>
+                    </li>                    
+                    <li>
+                        <a href="/Administrador/Carpinteros">
+                            <span class="#"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i></span>
+                            <small>Carpinteros</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/NuevoCarpintero">
+                            <span class="#"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></span>
+                            <small>Nuevo Carpintero</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/Ventas">
+                            <span class="#"><i class="fa-solid fa-chart-line" style="color: #ffffff;"></i></span>
+                            <small>Ventas</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Administrador/CatalogoProductos">
+                             <span class="#"><i class="fa-solid fa-toolbox" style="color: #ffffff;"></i></span>
+                             <small>Catálogo</small>
+                         </a>
+                     </li>
+                     <li>
+                        <a href="/Administrador/Comentarios">
+                             <span class="#"><i class="fa-solid fa-comment-dots" style="color: #ffffff;"></i></span>
+                             <small>Comentarios</small>
+                         </a>
+                     </li>
+                    
+                     <li>
+                        <a href="/Administrador/Envios">
+                             <span class="#"><i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></span>
+                             <small>Envios</small>
+                         </a>
+                     </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars">WJ CARPINTERIA</span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <form th:action="@{/send_bulk_email}" method="POST">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-warning btn-lg">Enviar Correos Masivos</button>
+                        </div>
+                    </form>
+                    
+                    
+
+                    <label for="">
+                        <span class="#"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></span>
+                    </label>
+                    
+                    <div class="notify-icon"> 
+                        <span class="#"><i class="fa-regular fa-envelope" style="color: #da1010;"></i></span>
+                       <a href="Error505.php"><span class="notify">4</span></a>
+                    </div>
+                    
+                    <div class="notify-icon">
+                        <span class="#"><i class="fa-solid fa-bell" style="color: #FFD43B;"></i></span>
+                       <a href="Error404.php"><span class="notify">3</span></a> 
+                    </div>
+                    
+                    <div class="user">
+                        <span class="#"></span>
+                        <a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket" style="color: #b61111;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main>
+            
+            <div class="page-header">
+                <h1>¡Wow! Que ventas!!</h1>
+                <small th:text="'¡Bienvenido, ' + ${#authentication.principal.username} + '!'"></small>
+            </div>
+            
+            <div class="container mt-4">
+                <!-- Sección Generador de Gráficos -->
+                <div class="card shadow-lg p-4 mb-4">
+                    <h1 class="text-center text-primary">Generador de Gráficos</h1>
+            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="tipo" class="form-label fw-bold">Tipo de Gráfico</label>
+                            <select class="form-select mb-3" id="tipo">
+                                <option value="circular">Gráfico Circular</option>
+                                <option value="columna">Gráfico de Columnas</option>
+                            </select>
+            
+                            <label for="titulo" class="form-label fw-bold">Título del Gráfico</label>
+                            <input type="text" class="form-control mb-3" placeholder="Título del Gráfico" id="titulo">
+            
+                            <div id="datos">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Leyenda 1">
+                                    <input type="number" class="form-control" placeholder="Valor 1">
+                                </div>
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" placeholder="Leyenda 2">
+                                    <input type="number" class="form-control" placeholder="Valor 2">
+                                </div>
+                            </div>
+            
+                            <div class="d-flex gap-2">
+                                <button onclick="agregarDato()" class="btn btn-outline-primary">
+                                    <i class="fa-solid fa-plus"></i> Agregar Dato
+                                </button>
+                                <button onclick="cargarGrafico()" class="btn btn-primary">
+                                    <i class="fa-solid fa-chart-bar"></i> Crear Gráfico
+                                </button>
+                            </div>
+                        </div>
+            
+                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                            <div id="piechart" class="w-100 border rounded shadow-sm p-3 bg-light" style="min-height: 300px;">
+                                <p class="text-center text-muted">Aquí aparecerá el gráfico</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Sección de Mejor Vendedor -->
+                <div class="card shadow-lg p-4 mb-4">
+                    <h3 class="text-center text-success">Mejor Vendedor</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombres</th>
+                                    <th>Muebles</th>
+                                    <th>Precio</th>
+                                    <th>Ganancias Totales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th>1</th><td>Ana Ruiz</td><td>Estantería</td><td>200.000</td><td>150.000</td></tr>
+                                <tr><th>2</th><td>Juan Pérez</td><td>Mesa de centro</td><td>200.000</td><td>150.000</td></tr>
+                                <tr><th>3</th><td>María García</td><td>Silla de comedor</td><td>200.000</td><td>150.000</td></tr>
+                                <tr><th>4</th><td>Carlos López</td><td>Armario</td><td>200.000</td><td>150.000</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                <!-- Sección Ranking de Carpinteros -->
+                <div class="card shadow-lg p-4">
+                    <h3 class="text-center text-info">Ranking de Carpinteros</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Porcentaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th>1</th><td>Ana Ruiz</td><td><div class="progress"><div class="progress-bar bg-success" style="width: 93%;">93%</div></div></td></tr>
+                                <tr><th>2</th><td>Juan Pérez</td><td><div class="progress"><div class="progress-bar bg-success" style="width: 89%;">89%</div></div></td></tr>
+                                <tr><th>3</th><td>María García</td><td><div class="progress"><div class="progress-bar bg-dark" style="width: 76%;">76%</div></div></td></tr>
+                                <tr><th>4</th><td>Carlos López</td><td><div class="progress"><div class="progress-bar bg-warning" style="width: 55%;">55%</div></div></td></tr>
+                                <tr><th>5</th><td>Pedro González</td><td><div class="progress"><div class="progress-bar bg-danger" style="width: 30%;">30%</div></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+        
+    </div>
+    <!-- script dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+
+            
+
+</body>
+</html>

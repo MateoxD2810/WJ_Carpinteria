@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/Usuarios/styleCliente.css">
+    <link rel="stylesheet" href="../iconos/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/css/Usuarios/catalogo.css">
+    <title>Catálogo</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <!-- 1 fila navegacion -->
+        <div class="row border-bottom border-body nav">
+
+            <div class="col">
+
+                <nav class="navbar navbar-expand-lg">
+
+                    <img class="navbar-brand" src="/img/Usuarios/wjj.png">
+    
+                    <!-- Apartados -->
+                    
+                    <div class="collapse navbar-collapse Nabvar d-flex justify-content-start" id="navbarNav">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Usuarios/Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Usuarios/Catalogo">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Usuarios/PersonalizarM">Perzonalizar Mueble <i class="fa-solid fa-hammer"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true"></a>
+                        </li>
+                        </ul>
+                    </div>
+    
+                    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                        <ul class="nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-5" aria-current="page" th:text="${#authentication.principal.username}"></a>
+                            </li>
+                            <div class="botonPerfil text-center">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">Ver perfil</button>
+                            </div>
+    
+                            <!-- Ver Perfil -->
+    
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                
+                                    <div class="modal-body">
+                                    <!-- Contenido -->
+                                    <div class="imgPer card">
+                                        <img src="/img/Usuarios/wjj.png" class="card-img-top img-fluid" alt="...">
+                                    <div class="card-body ">
+                                        <h4 class="display-6 text-warning-emphasis" th:text="${#authentication.principal.username}"></h4>
+                                        <h4>Rol: Usuario</h4>
+                                        <h4>Correo Electrónico: #################</h4>
+                                        <h4>Teléfono: +57 ##########</h4>
+                                        <h4>Dirección: #########################</h4>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark fs-6" data-bs-dismiss="modal">Cerrar</button>
+                                    <a href="/Usuarios/ActualizarInfo" type="button" class="btn btn-warning fs-6">Modificar Información</a>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+    
+                            <!--Ver Perfil -->
+                        <li>
+                            <a class="nav-link fs-5" href="/Usuarios/Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" href="#"><i class="fa-solid fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5" th:href="@{/logout}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                        </li>
+                        </ul>
+                    </div>
+    
+                    </nav>
+
+            </div>
+
+
+        </div>
+
+        <main class="ficha">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <!-- Productos -->
+                    <div class="col" th:each="mueble : ${muebles}">
+                        <div class="card shadow-sm">
+                            <img th:src="@{'/uploads/' + ${mueble.imagen}}" alt="Imagen del mueble" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${mueble.nombreMueble}">Nombre del Mueble</h5>
+                                <p class="card-text" th:text="'$' + ${mueble.precio}">Precio</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-warning addToCart" 
+                                            data-id-mueble="${mueble.id}" 
+                                            data-nombre="${mueble.nombreMueble}" 
+                                            data-precio="${mueble.precio}">Agregar al Carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="/img/Usuarios/catalogo/cocina.png">
+                            <div class="card-body">
+                                <h5 class="card-title">Cocina Integral de Roble</h5>
+                                <p class="card-text">$7.000.000</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button onclick="mostrarNotificacion()" class="btn btn-warning addToCart">Agregar al Carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <div id="notificacion" class="notificacion-container hidden">
+            <div class="notificacion-card">
+                <div class="notificacion-content">
+                    <h5 class="notificacion-title">¡Producto añadido al carrito!</h5>
+                    <div class="d-flex justify-content-between">
+                        <div class="btn-group">
+                            <button onclick="cerrarNotificacion()" class="btn btn-dark">Aceptar</button>
+                        </div>
+                        <div class="btn-group">
+                            <a href="/Usuarios/Carrito" class="btn btn-warning">Ver Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="alerta" class="alert hidden">
+            <div class="alert-content">
+                <p>Este producto ya está en tu carrito de compras.</p>
+                <button onclick="cerrarAlerta()">Aceptar</button>
+            </div>
+        </div>
+        
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="text-uppercase mb-4 font-weight-bold text-dark">Nosotros</h4>
+                    <hr class="mb-4">
+                    <p><a href="#" class="text-dark">Nosotros</a></p>
+                    <p><a href="#" class="text-dark">Servicios</a></p>
+                    <p><a href="../rolCliente/Error404.html" class="text-dark">Ayuda</a></p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="text-uppercase mb-4 font-weight-bold text-dark">INFO SCRUM</h4>
+                    <hr class="mb-4">
+                    <p><i class="fa-regular fa-user"></i>Mateo Galindo Sandino</p>
+                    <p><i class="fab fa-whatsapp"></i>+57 324 5568379</p>
+                    <p><i class="fa-regular fa-user"></i>Christopher Daniel Jiménez Rivera</p>
+                    <p><i class="fab fa-whatsapp"></i>+57 310 8874722</p>
+                    <p><i class="fa-regular fa-user"></i>Juan Camilo Amorocho Lievano</p>
+                    <p><i class="fab fa-whatsapp"></i>+57 322 4529636</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h4 class="text-uppercase mb-4 font-weight-bold text-dark">INFO WJ Carpinteria</h4>
+                    <hr class="mb-4">
+                    <p>WJ Carpintería es un Taller Ubicado en Bogotá, 
+                        Ventas en el Distrito Capital de Colombia y sus alrededores, 
+                        especializada en la fabricación de muebles a medida y servicios de carpintería en general. 
+                        Ofrecen una amplia gama de productos y servicios, incluyendo cocinas integrales, muebles y 
+                        puertas personalizadas a su gusto, y arreglos locativos.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/Usuarios/Catalogo.js"></script>
+
+    <script>
+        // Script para la notificación
+        function mostrarNotificacion() {
+            var notificacion = document.getElementById('notificacion');
+            notificacion.classList.remove('hidden');
+            setTimeout(function() {
+                notificacion.classList.add('hidden');
+            }, 3000);
+        }
+
+        function cerrarNotificacion() {
+            var notificacion = document.getElementById('notificacion');
+            notificacion.classList.add('hidden');
+        }
+
+        function cerrarAlerta() {
+            var alerta = document.getElementById('alerta');
+            alerta.classList.add('hidden');
+        }
+    </script>
+
+
+</body>
+</html>

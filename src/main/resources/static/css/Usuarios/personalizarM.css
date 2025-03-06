@@ -1,0 +1,85 @@
+.espacio{
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.personalizar {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%; 
+  padding: 8px; 
+  margin-bottom: 10px; 
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; 
+}
+
+
+.material{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.material img {
+  width: 100px;
+  object-fit: cover;
+  border: 2px solid #000000;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.material input[type="radio"]:checked + img {
+  border-color: #c4a600;
+}
+
+form img{
+  align-items: center;
+  width: 200px;
+  border-radius: 10%;
+  border: 6px solid #000000;
+  margin-bottom: 20px; 
+}
+
+.selectiona{
+  display: none;
+  margin-bottom: 10px; 
+}
+
+.botons{
+  background: #919191;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comprass button{
+  width: 100%;
+}
+
+/* Media query para ajustar a diseño de columnas en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .material-selector {
+    justify-content: center; /* Centra los elementos en pantallas más pequeñas */
+  }
+}
